@@ -10,11 +10,10 @@ const styles = StyleSheet.create({
   imageContainer: {
     width: 80,
     height: 80,
-    padding: 2,
     borderRadius: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'transparent',
   },
   selectedImageContainer: {

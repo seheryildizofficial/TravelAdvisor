@@ -59,16 +59,17 @@ const HotelListScreen = () => {
       <View style={styles.searchContainer}>
         <GooglePlacesAutocomplete
           GooglePlacesDetailsQuery={{fields: 'geometry'}}
-          placeholder="Search"
+          placeholder="Search.."
           fetchDetails={true}
           onPress={(data, details = null) => {
+            console.log('loggg', details?.geometry?.viewport);
             setBl_lat(details?.geometry?.viewport?.southwest?.lat);
             setBl_lng(details?.geometry?.viewport?.southwest?.lng);
             setTr_lat(details?.geometry?.viewport?.northeast?.lat);
             setTr_lng(details?.geometry?.viewport?.northeast?.lng);
           }}
           query={{
-            key: 'YOUR_GOOGLE_PLACES_API_KEY',
+            key: 'AIzaSyBALJxYhftTUn77uyXtHmtzRhpsODa1n5s',
             language: 'en',
           }}
         />
@@ -107,7 +108,7 @@ const HotelListScreen = () => {
           </View>
 
           <View style={styles.topTips}>
-            <Text style={styles.topTipsText}>Top Tips</Text>
+            <Text style={styles.topTipsText}>Top Trips</Text>
             <TouchableOpacity style={styles.exploreButton}>
               <Text style={styles.exploreButtonText}>Explore</Text>
               <Icon

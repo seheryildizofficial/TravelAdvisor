@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     color: colors.quaternary,
   },
   description: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: colors.quaternary,
     marginBottom: 16,

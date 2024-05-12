@@ -3,7 +3,7 @@ import {colors} from '../../utils/constants';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     position: 'relative',
   },
   firstSection: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     width: 56,
     height: 56,
-    backgroundColor: 'black',
+    backgroundColor: colors.black,
     borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
