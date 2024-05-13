@@ -62,7 +62,6 @@ const HotelListScreen = () => {
           placeholder="Search.."
           fetchDetails={true}
           onPress={(data, details = null) => {
-            console.log('loggg', details?.geometry?.viewport);
             setBl_lat(details?.geometry?.viewport?.southwest?.lat);
             setBl_lng(details?.geometry?.viewport?.southwest?.lng);
             setTr_lat(details?.geometry?.viewport?.northeast?.lat);
@@ -121,8 +120,8 @@ const HotelListScreen = () => {
           </View>
 
           <View style={styles.contentContainer}>
-            {mainData.length > 0 ? (
-              mainData.map((data, i) => (
+            {mainData?.length > 0 ? (
+              mainData?.map((data, i) => (
                 <HotelCard
                   key={i}
                   imageSrc={

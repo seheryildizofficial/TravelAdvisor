@@ -1,12 +1,14 @@
-import React, {useLayoutEffect} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import styles from './style';
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Image} from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {colors} from '../../utils/constants';
 
 const HotelDetailScreen = ({route}) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const navigation = useNavigation();
   const data = route?.params?.param;
 
@@ -32,10 +34,17 @@ const HotelDetailScreen = ({route}) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('HotelListScreen')}
               style={styles.backButton}>
-              <Icon name="chevron-back" size={24} color="#06B2BE" />
+              <Icon name="chevron-back" size={24} color={colors.primary} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.heartButton}>
-              <Icon name="heart-outline" size={24} color="#fff" />
+
+            <TouchableOpacity
+              style={styles.heartButton}
+              onPress={() => setIsFavorite(prev => !prev)}>
+              <Icon
+                name={isFavorite ? 'heart' : 'heart-outline'}
+                size={24}
+                color={colors.white}
+              />
             </TouchableOpacity>
           </View>
           <View style={styles.priceContainer}>
@@ -63,7 +72,7 @@ const HotelDetailScreen = ({route}) => {
             {data?.rating && (
               <View style={styles.detailItem}>
                 <View style={styles.detailIconContainer}>
-                  <Icon name="star" size={24} color="#D58574" />
+                  <Icon name="star" size={24} color="#F3CA52" />
                 </View>
                 <View>
                   <Text style={styles.detailText}>{data?.rating}</Text>
@@ -74,7 +83,7 @@ const HotelDetailScreen = ({route}) => {
             {data?.price_level && (
               <View style={styles.detailItem}>
                 <View style={styles.detailIconContainer}>
-                  <Icon name="cash-outline" size={24} color="black" />
+                  <Icon name="cash-outline" size={24} color="#40A578" />
                 </View>
                 <View>
                   <Text style={styles.detailText}>{data?.price_level}</Text>
@@ -85,7 +94,7 @@ const HotelDetailScreen = ({route}) => {
             {data?.bearing && (
               <View style={styles.detailItem}>
                 <View style={styles.detailIconContainer}>
-                  <Icon name="map" size={24} color="black" />
+                  <Icon name="map" size={24} color="#535AEB" />
                 </View>
                 <View>
                   <Text style={styles.detailText}>{data?.bearing}</Text>
