@@ -62,10 +62,12 @@ const HotelListScreen = () => {
           placeholder="Search.."
           fetchDetails={true}
           onPress={(data, details = null) => {
-            setBl_lat(details?.geometry?.viewport?.southwest?.lat);
-            setBl_lng(details?.geometry?.viewport?.southwest?.lng);
-            setTr_lat(details?.geometry?.viewport?.northeast?.lat);
-            setTr_lng(details?.geometry?.viewport?.northeast?.lng);
+            details
+              ? (setBl_lat(details?.geometry?.viewport?.southwest?.lat),
+                setBl_lng(details?.geometry?.viewport?.southwest?.lng),
+                setTr_lat(details?.geometry?.viewport?.northeast?.lat),
+                setTr_lng(details?.geometry?.viewport?.northeast?.lng))
+              : console.log('Detaylar alınamadı.');
           }}
           query={{
             key: 'AIzaSyBALJxYhftTUn77uyXtHmtzRhpsODa1n5s',
@@ -73,7 +75,6 @@ const HotelListScreen = () => {
           }}
         />
       </View>
-
       {isLoading ? (
         <ActivityIndicator
           style={styles.activityIndicator}
@@ -82,25 +83,25 @@ const HotelListScreen = () => {
         />
       ) : (
         <ScrollView style={styles.scrollView}>
-          <View style={styles.menuContainer}>
+          <View style={styles.filterArea}>
             <FilterArea
               key={'hotels'}
-              type={type}
               title="Hotels"
+              type={type}
               setType={setType}
               imageSrc={require('../../assets/images/hotel.jpg')}
             />
             <FilterArea
               key={'attractions'}
-              type={type}
               title="Attractions"
+              type={type}
               setType={setType}
               imageSrc={require('../../assets/images/trips.png')}
             />
             <FilterArea
               key={'restaurants'}
+              title="Restaurants"
               type={type}
-              title="Restaurant"
               setType={setType}
               imageSrc={require('../../assets/images/food.png')}
             />
@@ -121,7 +122,7 @@ const HotelListScreen = () => {
 
           <View style={styles.contentContainer}>
             {mainData?.length > 0 ? (
-              mainData?.map((data, i) => (
+              mainData.map((data, i) => (
                 <HotelCard
                   key={i}
                   imageSrc={

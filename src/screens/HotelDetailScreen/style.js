@@ -156,6 +156,22 @@ const styles = StyleSheet.create({
     marginRight: 8,
     marginBottom: 8,
   },
+  contactInfoContainer: {
+    marginTop: 4,
+    backgroundColor: '#f0f4f8',
+    borderRadius: 16,
+    padding: 8,
+  },
+  contactInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  contactInfoText: {
+    fontSize: 16,
+    color: colors.tertiary,
+    marginLeft: 8,
+  },
   bookButton: {
     backgroundColor: colors.primary,
     borderRadius: 10,

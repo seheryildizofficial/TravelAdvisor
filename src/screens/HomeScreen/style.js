@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: colors.titleText,
-    fontSize: 24,
+    marginRight: '60%',
+    fontSize: 30,
     fontWeight: 'bold',
   },
   secondSection: {
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
   },
   bigText: {
     color: colors.circle1,
-    fontSize: 42,
+    fontSize: 40,
   },
   boldText: {
     color: colors.primary,
@@ -46,8 +47,8 @@ const styles = StyleSheet.create({
   },
   smallText: {
     color: colors.circle1,
-    fontSize: 16,
-    marginTop: 5,
+    fontSize: 15,
+    marginTop: 15,
     zIndex: 5,
   },
   circle: {
@@ -58,13 +59,13 @@ const styles = StyleSheet.create({
   },
   circle1: {
     backgroundColor: colors.primary,
-    bottom: -10,
-    right: -36,
+    bottom: 70,
+    right: -100,
   },
   circle2: {
     backgroundColor: colors.circle2,
-    bottom: -28,
-    left: -36,
+    bottom: 10,
+    left: -100,
   },
   imageContainer: {
     flex: 1,
@@ -74,9 +75,9 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: '100%',
+    height: '90%',
     resizeMode: 'cover',
-    marginTop: 20,
+    marginTop: 30,
   },
   button: {
     position: 'absolute',

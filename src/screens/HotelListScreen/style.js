@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../utils/constants';
+import FilterArea from '../../components/filterArea';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
   },
-  menuContainer: {
+  filterArea: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 8,

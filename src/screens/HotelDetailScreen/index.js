@@ -61,13 +61,12 @@ const HotelDetailScreen = ({route}) => {
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{data?.name}</Text>
           <View style={styles.locationContainer}>
-            <Icon name="location-outline" size={24} color="#8C9EA6" />
+            <Icon name="location-outline" size={24} color={colors.quaternary} />
             <Text style={styles.locationText}>{data?.location_string}</Text>
           </View>
         </View>
 
         <View style={styles.detailsContainer}>
-          <Text style={styles.detailsHeader}>Details</Text>
           <View style={styles.detailsRow}>
             {data?.rating && (
               <View style={styles.detailItem}>
@@ -118,6 +117,31 @@ const HotelDetailScreen = ({route}) => {
             ))}
           </View>
         )}
+
+        <View style={styles.contactInfoContainer}>
+          {data?.phone && (
+            <View style={styles.contactInfo}>
+              <Icon
+                name="phone-portrait-outline"
+                size={24}
+                color={colors.tertiary}
+              />
+              <Text style={styles.contactInfoText}>{data?.phone}</Text>
+            </View>
+          )}
+          {data?.email && (
+            <View style={styles.contactInfo}>
+              <Icon name="mail-outline" size={24} color={colors.tertiary} />
+              <Text style={styles.contactInfoText}>{data?.email}</Text>
+            </View>
+          )}
+          {data?.address && (
+            <View style={styles.contactInfo}>
+              <Icon name="location-outline" size={24} color={colors.tertiary} />
+              <Text style={styles.contactInfoText}>{data?.address}</Text>
+            </View>
+          )}
+        </View>
 
         <TouchableOpacity style={styles.bookButton}>
           <Text style={styles.bookButtonText}>Book Now</Text>
